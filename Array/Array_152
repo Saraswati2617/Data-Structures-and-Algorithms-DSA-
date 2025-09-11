@@ -1,0 +1,23 @@
+# MAXIMUM PRODUCT SUBARRAY
+
+from typing import List
+class Solution:
+    def maxProduct(self, nums: List[int]) -> int:
+        l,r=0,len(nums)-1
+        l_p=1
+        r_p=1
+        m=float('-inf')
+        for _ in range(len(nums)):
+            l_p*=nums[l]
+            r_p*=nums[r]
+            m=max(l_p,r_p,m)
+            if l_p==0:
+                l_p=1
+            elif r_p==0:
+                r_p=1
+            l+=1
+            r-=1
+        return m
+sol=Solution()
+print(sol.maxProduct([2,3,0,-5,6,-1,4]))
+       

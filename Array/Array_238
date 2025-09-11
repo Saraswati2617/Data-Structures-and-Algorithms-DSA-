@@ -1,0 +1,24 @@
+# PRODUCT OF THE ARRAY EXCEPT SELF
+
+
+from typing import List
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        n=len(nums)
+        l=[0]*n
+        r=[0]*n
+        l_val=1
+        r_val=1
+
+        for i in range(n):
+            j=-i-1
+            l[i]=l_val
+            r[j]=r_val
+            l_val*=nums[i]
+            r_val*=nums[j]
+
+        return [l*r for l,r in zip(l,r)]
+
+      
+sol=Solution()
+print(sol.productExceptSelf([1,2,3,4]))  

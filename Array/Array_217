@@ -1,0 +1,9 @@
+# CONTAINES DUPLICATES
+
+from typing import List
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        return(len(set(nums)) != len(nums)) 
+        
+sol=Solution()
+print(sol.containsDuplicate([2,4,1,5,2]))

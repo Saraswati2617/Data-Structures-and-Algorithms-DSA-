@@ -1,0 +1,37 @@
+# TWO SUM
+
+from typing import List
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+
+    # =============== Brute Force approach ===================== 0(n^2)
+        # for i in range(len(nums)):
+        #     for j in range(i + 1, len(nums)):
+        #         if nums[j] == target - nums[i]:
+        #             return [i, j]
+        # # Return an empty list if no solution is found
+        # return []
+    
+
+    # =============== Hashmap(disctionary) 2 pass ===================== 0(n)
+        # hashmap={}
+        # for i in range(len(nums)):
+        #     hashmap[nums[i]]=i
+        # for j in range(len(nums)):
+        #     diff=target-nums[j]
+        #     if (diff in hashmap) and hashmap[diff]!=j:
+        #         return[hashmap[diff],j]
+        # return []
+    
+    # ============= Hashmap(dictonary)  1 pass ======================= 0(n)
+        hashmap={}
+        for i in range(len(nums)):
+            diff=target-nums[i]
+            if diff in hashmap:
+                return[hashmap[diff],i]
+            hashmap[nums[i]]=i
+        return[]
+
+
+sol=Solution()
+print(sol.twoSum([2,1,5,4,6],10))

@@ -1,0 +1,14 @@
+# 287 FIND DUPLICATE NUMBER
+
+from collections import Counter
+from typing import List
+class Solution:
+    def findDuplicate(self, nums: List[int]) -> int:
+        occurences=Counter(nums)
+        ans=[]
+        for key,value in occurences.items():
+            if value>1:
+                return key
+        
+sol=Solution()
+print(sol.findDuplicate([1,2,3,3,2]))

@@ -1,0 +1,25 @@
+# Find Missing and Repeated Values
+
+from typing import List
+class Solution:
+    def findMissingAndRepeatedValues(self, grid: List[List[int]]) -> List[int]:
+        l=len(grid)
+        r=l*l
+        memo={}
+        repeat=0
+        for i in range(l):
+            for j in range(l):
+                val=grid[i][j]
+                if val not in memo:
+                    memo[val]=1
+                else:
+                    repeat=val
+
+        s=sum(range(1, r+1))
+        t=sum(memo.keys())
+        miss=s-t
+
+        return([repeat,miss])
+sol=Solution()
+print(sol.findMissingAndRepeatedValues([[1,2],[2,3]]))
+

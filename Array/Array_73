@@ -1,0 +1,43 @@
+
+
+from typing import List
+class Solution:
+    def setZeroes(self, matrix: List[List[int]]) -> None:
+        """
+        Do not return anything, modify matrix in-place instead.
+        """
+        m=len(matrix)
+        n=len(matrix[1])
+        for i in range(m):
+            for j in range(n):
+                ele=matrix[i][j]
+                if ele==0:
+                    
+                    l=j-1
+                    while l>=0:
+                        
+                        matrix[i][l]=0
+                        l-=1
+
+                    r=j+1
+                    while r<=n:
+                        matrix[i][r]=0
+                        j+=1
+
+                    u=i-1
+                    while u<=0:
+                        matrix[u][j]=0
+                        u-=1
+
+                    d=i+1
+                    while d<=m:
+                        matrix[d][j]=0
+                        d+=1
+     
+        for i in range (4):
+            for j in range(4):
+                print(matrix[i][j])
+            print("\n")
+                    
+sol=Solution()
+print(sol.setZeroes([[1,2,3,4],[5,0,6,7],[8,9,10,11],[12,13,14,15]]))             
